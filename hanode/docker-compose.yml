@@ -1,6 +1,6 @@
 version: '2'
 services:
-  lux-mongo:
+  joker-mongo:
     image: mongo
     ports:
      - "27017:27017"
@@ -29,7 +29,7 @@ services:
     environment:
       VERTX_RUN_COMMAND: run ru.spb.luxoft.vertx.webinar.bnb.Persistor -ha
     depends_on:
-      - lux-mongo
+      - joker-mongo
   web:
     image: bnb/hanode:0.1
     ports:

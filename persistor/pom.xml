@@ -96,7 +96,7 @@
                     <plugin>
                         <groupId>com.spotify</groupId>
                         <artifactId>docker-maven-plugin</artifactId>
-                        <version>0.2.11</version>
+                        <version>0.4.13</version>
                         <executions>
                             <execution>
                                 <id>docker</id>
@@ -156,7 +156,7 @@
                                         <argument>--name</argument>
                                         <argument>persistor-${project.version}</argument>
                                         <argument>--link</argument>
-                                        <argument>lux-mongo</argument>
+                                        <argument>joker-mongo</argument>
                                         <argument>${docker.image}</argument>
                                     </arguments>
                                 </configuration>

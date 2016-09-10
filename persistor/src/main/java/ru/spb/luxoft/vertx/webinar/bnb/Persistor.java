@@ -15,8 +15,8 @@ public class Persistor extends AbstractVerticle {
     public void start() throws Exception {
         mongo = MongoClient.createShared(vertx,
                 new JsonObject()
-                        .put("host", "lux-mongo")
-                        .put("db_name", "luxdatabase")
+                        .put("host", "joker-mongo")
+                        .put("db_name", "jokerdatabase")
         );
         vertx.eventBus().consumer("story_topic", this::persistMessage);
         out.println("<--- PERSISTOR ---> is now running");

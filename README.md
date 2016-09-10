@@ -13,7 +13,7 @@ To run all containers at once use: docker-compose up
 To run hanode from maven: mvn package -P con,run -Dvertx.options="-ha" -Dstart.verticle="producer.groovy"
 
  
-    Plan for webex
+    Plan for speech
  - Who am I
  - Intro: why vert.x
  - Producer: exploring groovy code, maven build, Dockerfile, deployment to docker
@@ -21,10 +21,10 @@ To run hanode from maven: mvn package -P con,run -Dvertx.options="-ha" -Dstart.v
  - Start mongo in docker
  - Persistor: exploring java code, maven build, Dockerfile, deployment to docker
     - vert.x shell interactions
-    - JMX, jsonsole, visualVM (a lots of options should be added) - 192.168.99.100:1898 for boot2docker, localhost:1898 for linux
+    - JMX, jsonsole, visualVM (a lots of options should be added) - 192.168.99.100:1898 for boot2docker, localhost:1898 for linux and native MAC
  - web: exploring js client and server code, maven build, Dockerfile, deployment to docker, test in browser
  - vert.x console, ha demo
- - split brain demo: linux vm launch, blockade
+ - split brain demo: linux VM launch, blockade
  - Resume 
  
  
@@ -36,7 +36,7 @@ To run hanode from maven: mvn package -P con,run -Dvertx.options="-ha" -Dstart.v
 
     Negative things to mention
  - hazelcast by default has timeouts and delays that should be configured for each particular case.    
- - rmi host on boot2docker needs to be specified (-Djava.rmi.server.hostname='192.168.99.100'), not on linux
+ - rmi host of docker machine for boot2docker needs to be specified -Djava.rmi.server.hostname='192.168.99.100', on linux and native MAC set it to 0.0.0.0
  - ports will not automatically be opened while migrating from container to container, i.e. migration of web is useless,
  use super ha node with all ports needed
  - hanode - StarterVerticle is replicated in ha node instead of target verticle in vertx.deploy() -> solved with Launcher
@@ -52,13 +52,13 @@ To run hanode from maven: mvn package -P con,run -Dvertx.options="-ha" -Dstart.v
     Hints for docker interaction:
  - To initialize docker environment run in terminal: eval "$(docker-machine env default)"
  - Docker bridge network is 172.17.0.X
- - Docker machine address is 192.168.99.100
+ - Docker machine address for boot2docker is 192.168.99.100
  - To kill all containers at once use: docker kill $(docker ps -q)
  - To remove all containters at once use:
     1. docker stop $(docker ps -a -q)
     2. docker rm $(docker ps -a -q)
  - To remove all none images use: docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
- - To run mongodb in docker container use: docker run -it --rm --name lux-mongo -p 27017:27017 mongo
+ - To run mongodb in docker container use: docker run -it --rm --name joker-mongo -p 27017:27017 mongo
  - To remove all images use:
     1.docker rm $(docker ps -a -q) 
     2.docker rmi $(docker images -q)

@@ -10,8 +10,8 @@ services:
      - "4000:4000"
      - "1898:1898"
     depends_on:
-      - lux-mongo
-  lux-mongo:
+      - joker-mongo
+  joker-mongo:
     image: mongo
     ports:
      - "27017:27017"
