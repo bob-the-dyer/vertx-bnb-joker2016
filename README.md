@@ -80,6 +80,7 @@ To run hanode from maven: mvn package -P con,run -Dvertx.options="-ha" -Dstart.v
  - verticle-undeploy
  - verticle-deploy
  - bus-tail story_topic
+ - bus-publish story_topic labuda
  - custom commands
   
 
